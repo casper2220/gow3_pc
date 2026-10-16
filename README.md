@@ -2,6 +2,64 @@
 
 **English** | [Português (Brasil)](README.pt-BR.md)
 
+> **This is a fork of [FelipePrado0/gow3_pc](https://github.com/FelipePrado0/gow3_pc).**
+> All the credit for the port goes to Felipe Prado and everyone listed in [Credits](#credits).
+> This fork adds the stuff below on top of it. For the official version, releases and support,
+> head to the original repo.
+
+## What this fork adds
+
+### 🐧 Native Linux
+No Wine, no Proton. Tested on CachyOS (Arch) with GCC 16 and an NVIDIA RTX 5070 laptop.
+- Build fixes for newer compilers and Vulkan headers (xbyak include path, VMA header fallback, a
+  `static_assert` that only worked in C, missing `-lm`).
+- Pipeline binary cache turned off on Linux, because NVIDIA's driver doesn't support
+  `VK_KHR_pipeline_binary` yet and the game crashed.
+- `run.sh` uses the same defaults as `run.py`: the memory/VBlank values the patches need, linear
+  readback, and so on.
+- The window renders at real pixel size with desktop scaling. Before, at 150% scaling on KDE, the
+  game rendered at a smaller size and got stretched.
+- `GOW3_GPU_TYPE=integrated|discrete` picks the GPU. Handy on laptops.
+- A Linux launcher, plus `install-desktop.sh` to add it to your app menu.
+- [LINUX.md](LINUX.md) has setup steps for Arch, Fedora, Ubuntu and Steam Deck.
+
+### 🇪🇺 European version (CUSA01715)
+- Its own patch file: a fix for the black screen on the intro (v01.00), plus the texture fix and
+  resolution patches for v01.02. They're ported from the US ones, with every address checked.
+- Patches can have one profile per game version, and the launcher remembers your picks for each.
+- Fixed a bug where the US patch file got applied to the EU game.
+- A separate update folder (`CUSAxxxxx-UPDATE`, like shadPS4 does) is layered on top of the game at
+  start. Neither folder gets modified.
+
+### ✨ FSR 3.1 and DLSS that actually work
+The temporal upscaler was still using hooks made for Bloodborne, so it never really ran in God of
+War III. The menu said "FSR 3.1", but 0 frames were being upscaled.
+- It's hooked where God of War III keeps its camera, depth and final composite, and runs right
+  before the HUD, so the HUD stays sharp.
+- Jitter is set up properly. Shadows, full-screen passes and the HUD are left alone.
+- Upscaling from a lower render resolution works too, so you get more FPS.
+- DLSS on Linux. It loads NVIDIA's own library from the driver, so nothing from NVIDIA is in this
+  repo. You can pick the DLSS model (the default is DLSS 4.5), and the overlay shows which version
+  is running.
+- The log prints how many frames got upscaled every 10 seconds.
+- [docs/upscaler.md](docs/upscaler.md) explains how God of War III's frame is put together.
+
+### 🎛️ Launcher
+- An update folder picker that finds `<game>-UPDATE` on its own.
+- A GPU list from Vulkan, showing which one is dedicated and which is integrated.
+- Upscaler options: FSR 3.1 / DLSS, the DLSS model, an upscaler mode that works like in normal PC
+  games, and the output resolution.
+- Options that don't apply to your build are greyed out, with a note explaining why.
+- The Linux launcher saves `last_run.log`, and the log page has a filter.
+
+### Heads-up
+- Windows isn't tested with these changes.
+- Still missing: reactive/transparency masks for FSR, FSR 4, and a proper check of motion on
+  characters.
+- The text below is the original project's README.
+
+---
+
 A PC port of **God of War III Remastered** (PlayStation 4) for Windows 10 and 11.
 
 The CPU side is native: the game's original executable runs directly on the PC's processor (the
