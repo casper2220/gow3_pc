@@ -60,7 +60,7 @@ War III. The menu said "FSR 3.1", but 0 frames were being upscaled.
 
 ---
 
-A PC port of **God of War III Remastered** (PlayStation 4) for Windows 10 and 11.
+A PC port of **God of War III Remastered** (PlayStation 4) for Windows 10 and 11, and (in this fork) native Linux.
 
 The CPU side is native: the game's original executable runs directly on the PC's processor (the
 PS4 uses the same x86-64 architecture), and a runtime written for this game replaces the PS4
@@ -74,7 +74,8 @@ It is a fork of [Supermedo's Windows port](https://github.com/Supermedo/bloodbor
 [deadinside28's bloodborne_pc](https://github.com/deadinside28/bloodborne_pc) (see
 [Credits](#credits)).
 
-> **No game files are included.** You need a dump from your own PS4 (CUSA01623, version 01.02).
+> **No game files are included.** You need a dump from your own PS4: the US version (CUSA01623, 01.02) or the European
+> version (CUSA01715, 01.00 or 01.02).
 > This project is not affiliated with Sony Interactive Entertainment or Santa Monica Studio.
 > God of War is a trademark of Sony Interactive Entertainment.
 
@@ -119,10 +120,14 @@ Progress is tracked (in Portuguese) in [docs/gow3/ROADMAP.md](docs/gow3/ROADMAP.
 ## Download and play
 
 **You need**
-- Windows 10 (1903 or newer) or Windows 11, 64-bit.
+- Windows 10 (1903 or newer) or Windows 11, 64-bit, or Linux (see [LINUX.md](LINUX.md)).
 - A graphics card with Vulkan 1.3 and an up-to-date driver.
-- Your own copy of God of War III Remastered: **CUSA01623 with the 01.02 update**, as a folder
-  that contains `eboot.bin`, `sce_module` and `sce_sys`. No game files are included in this
+- Your own copy of God of War III Remastered, US or European: **CUSA01623 with the 01.02
+  update**, or **CUSA01715 (01.00, or with the 01.02 update)**. It goes in a folder that contains
+  `eboot.bin`, `sce_module` and `sce_sys`. The update can also be kept in its own folder
+  (`CUSAxxxxx-UPDATE`).
+- The zip on the Releases page below is the original project's Windows build. This fork's
+  changes are in the source here, so build it yourself to get them. No game files are included in this
   download.
 
 **Steps**
@@ -134,7 +139,7 @@ Progress is tracked (in Portuguese) in [docs/gow3/ROADMAP.md](docs/gow3/ROADMAP.
    **More info**, then **Run anyway**: the program is not digitally signed.
 4. Click **Choose the game folder**. It takes you to the **Game** page. Next to **Game folder**,
    click **Browse…** and select the folder with `eboot.bin`.
-5. Back on **Home**, the cover art and "CUSA01623 · version 01.02" appear. Adjust **Quick
+5. Back on **Home**, the cover art and the game's ID and version (for example "CUSA01623 · version 01.02") appear. Adjust **Quick
    settings** if you like: display mode, frame rate limit, render resolution and engine frame
    rate.
 6. Click **PLAY**. The first start takes a little longer while the game image is prepared. The
@@ -163,10 +168,11 @@ Patches and fixes are included and applied automatically: texture fix, skip vide
 
 ## Requirements
 
-- Windows 10 (1903 or newer) or Windows 11, 64-bit.
+- Windows 10 (1903 or newer) or Windows 11, 64-bit, or Linux (see [LINUX.md](LINUX.md)).
 - A graphics card with Vulkan 1.3 and a current driver.
-- Your copy of the game: CUSA01623 with the 01.02 update applied (the folder with `eboot.bin`,
-  `sce_module` and `sce_sys`).
+- Your copy of the game, US or European: CUSA01623 with the 01.02 update, or CUSA01715 (01.00, or
+  with the 01.02 update). That's the folder with `eboot.bin`, `sce_module` and `sce_sys`. The
+  update can also be kept in its own folder.
 - The patches are applied only to the `eboot.bin` they were checked against byte by byte
   (sha256 `d85c8135d330c3b601bf5dc3f1dd86bd6119fb8a9fce372bed2c9785f9a79299`), and the in-game
   hooks (cheats, multipliers, health bar) only where the code they change has the expected

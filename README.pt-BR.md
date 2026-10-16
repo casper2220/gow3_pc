@@ -2,7 +2,7 @@
 
 [English](README.md) | **Português (Brasil)**
 
-Port para PC de **God of War III Remastered** (PlayStation 4) para Windows 10 e 11.
+Port para PC de **God of War III Remastered** (PlayStation 4) para Windows 10 e 11, e (neste fork) Linux nativo.
 
 A parte da CPU é nativa: o executável original do jogo roda direto no processador do PC (o PS4
 usa a mesma arquitetura x86-64), e um runtime escrito para este jogo substitui as bibliotecas de
@@ -17,8 +17,8 @@ menu no jogo).
 [bloodborne_pc de deadinside28](https://github.com/deadinside28/bloodborne_pc) (veja os
 [Créditos](#créditos)).
 
-> **Nenhum arquivo do jogo está incluído.** É preciso um dump do seu próprio PS4 (CUSA01623,
-> versão 01.02). Este projeto não tem relação com a Sony Interactive Entertainment nem com o
+> **Nenhum arquivo do jogo está incluído.** É preciso um dump do seu próprio PS4: a versão
+> americana (CUSA01623, 01.02) ou a europeia (CUSA01715, 01.00 ou 01.02). Este projeto não tem relação com a Sony Interactive Entertainment nem com o
 > Santa Monica Studio. God of War é marca registrada da Sony Interactive Entertainment.
 
 Na máquina de teste (AMD Radeon RX 6700 XT, Ryzen 5 5600X, 32 GB), o jogo roda a 144 FPS de
@@ -62,9 +62,9 @@ O andamento está em
 ## Baixar e jogar
 
 **Você precisa de**
-- Windows 10 (1903 ou mais novo) ou Windows 11, 64 bits.
+- Windows 10 (1903 ou mais novo) ou Windows 11, 64 bits, ou Linux (veja [LINUX.md](LINUX.md)).
 - Uma placa de vídeo com Vulkan 1.3 e driver atualizado.
-- Sua própria cópia de God of War III Remastered: **CUSA01623 com a atualização 01.02**, numa
+- Sua própria cópia de God of War III Remastered: a versão americana **CUSA01623 com a atualização 01.02** ou a europeia **CUSA01715 (01.00, ou com a atualização 01.02)**, numa
   pasta que contenha `eboot.bin`, `sce_module` e `sce_sys`. Nenhum arquivo do jogo vem neste
   download.
 
@@ -106,9 +106,9 @@ com X e 120 FPS vêm ligados. Mude resolução e FPS na **Home** ou em **Perform
 
 ## Requisitos
 
-- Windows 10 (1903 ou mais novo) ou Windows 11, 64 bits.
+- Windows 10 (1903 ou mais novo) ou Windows 11, 64 bits, ou Linux (veja [LINUX.md](LINUX.md)).
 - Placa de vídeo com Vulkan 1.3 e driver atualizado.
-- Sua cópia do jogo: CUSA01623 com a atualização 01.02 aplicada (a pasta com `eboot.bin`,
+- Sua cópia do jogo: a versão americana CUSA01623 com a atualização 01.02, ou a europeia CUSA01715 (01.00, ou com a atualização 01.02) (a pasta com `eboot.bin`,
   `sce_module` e `sce_sys`).
 - Os patches só são aplicados ao `eboot.bin` com que foram conferidos byte a byte (sha256
   `d85c8135d330c3b601bf5dc3f1dd86bd6119fb8a9fce372bed2c9785f9a79299`), e os ganchos do menu
